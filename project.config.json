@@ -6,8 +6,16 @@
   },
   "miniprogramRoot": "miniprogram/",
   "compileType": "miniprogram",
-  "projectname": "ts-demo",
+  "projectname": "idraw-miniprogram",
   "setting": {
+    "compileHotReLoad": true,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./"
+      }
+    ],
     "useCompilerPlugins": [
       "typescript"
     ],
