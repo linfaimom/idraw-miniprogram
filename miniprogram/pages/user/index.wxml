@@ -1,3 +1,4 @@
 <!--index.wxml-->
 <view class="container">
+  <van-empty description="暂时还没做呢～" />
 </view>
