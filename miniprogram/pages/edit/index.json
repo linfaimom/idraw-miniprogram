@@ -1,9 +1,4 @@
 {
   "usingComponents": {
-    "van-row": "@vant/weapp/row/index",
-    "van-col": "@vant/weapp/col/index",
-    "van-field": "@vant/weapp/field/index",
-    "van-button": "@vant/weapp/button/index",
-    "van-image": "@vant/weapp/image/index"
   }
 }
