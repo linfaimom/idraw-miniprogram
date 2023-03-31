@@ -1,0 +1,15 @@
+<!--index.wxml-->
+<view class="container">
+  <van-row gutter="20">
+    <van-col>
+      <van-field border="{{true}} " value="{{value}}" placeholder="请输入场景描述" bind:change="onTextChange" />
+    </van-col>
+    <van-col>
+      <van-button size="small" type="primary" bind:click="postToGenerate" loading="{{loading}}" style="position: relative; left: -20rpx; top: 25rpx">生成</van-button>
+    </van-col>
+  </van-row>
+  <view wx:for="{{images}}">
+    <van-image show-loading width="10rem" height="10rem" fit="contain" src="{{item}}">
+    </van-image>
+  </view>
+</view>

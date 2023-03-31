@@ -1,6 +1,32 @@
 {
+  "tabBar": {
+    "list": [{
+      "pagePath": "pages/index/index",
+      "iconPath": "./resources/image.png",
+      "selectedIconPath": "./resources/image_selected.png",
+      "text": "场景生图"
+    },{
+      "pagePath": "pages/edit/index",
+      "iconPath": "./resources/image.png",
+      "selectedIconPath": "./resources/image_selected.png",
+      "text": "融景入图"
+    },{
+      "pagePath": "pages/variant/index",
+      "iconPath": "./resources/image.png",
+      "selectedIconPath": "./resources/image_selected.png",
+      "text": "以图换图"
+    },{
+      "pagePath": "pages/user/index",
+      "iconPath": "./resources/user.png",
+      "selectedIconPath": "./resources/user_selected.png",
+      "text": "我的"
+    }]
+  },
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/edit/index",
+    "pages/variant/index",
+    "pages/user/index"
   ],
   "window": {
     "backgroundTextStyle": "light",

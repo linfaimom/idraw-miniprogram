@@ -2,8 +2,8 @@
 Page({
   data: {
     text: "",
-    number: 1,
-    size: "1024*1024",
+    number: 2,
+    size: "256x256",
     loading: false,
     images: []
   },
