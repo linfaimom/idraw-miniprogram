@@ -28,7 +28,7 @@ Page({
       wx.showToast({
         title: '要输入文字哦～',
         icon: 'error',
-        duration: 1000
+        duration: 1500
       })
       return
     }
@@ -45,12 +45,27 @@ Page({
       },
       success(res: any) {
         console.log(res.data)
+        if (res.data.code !== 200) {
+          console.log(res.data.msg);
+          wx.showToast({
+            title: '请重试一下哦～',
+            icon: 'error',
+            duration: 1500
+          })
+          return
+        }
         _this.setData({
           images: res.data.data
         })
       },
       fail(err) {
         console.log(err)
+        wx.showToast({
+          title: '请重试一下哦～',
+          icon: 'error',
+          duration: 1500
+        })
+        return
       },
       complete() {
         _this.toggleLoading()
