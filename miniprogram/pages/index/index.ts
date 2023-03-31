@@ -2,7 +2,7 @@
 Page({
   data: {
     text: "",
-    number: 2,
+    number: 1,
     size: "256x256",
     loading: false,
     images: []

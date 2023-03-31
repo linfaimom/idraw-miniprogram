@@ -10,7 +10,6 @@
   </van-row>
   <van-divider dashed />
   <view wx:for="{{images}}">
-    <van-image show-loading width="10rem" height="10rem" fit="contain" src="{{item}}">
-    </van-image>
+    <van-image show-loading width="15rem" height="15rem" fit="contain" src="{{item}}"></van-image>
   </view>
 </view>
