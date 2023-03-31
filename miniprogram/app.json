@@ -5,17 +5,17 @@
       "iconPath": "./resources/image.png",
       "selectedIconPath": "./resources/image_selected.png",
       "text": "场景生图"
-    },{
+    }, {
       "pagePath": "pages/edit/index",
       "iconPath": "./resources/merge.png",
       "selectedIconPath": "./resources/merge_selected.png",
       "text": "融景入图"
-    },{
+    }, {
       "pagePath": "pages/variant/index",
       "iconPath": "./resources/converter.png",
       "selectedIconPath": "./resources/converter_selected.png",
       "text": "以图换图"
-    },{
+    }, {
       "pagePath": "pages/user/index",
       "iconPath": "./resources/user.png",
       "selectedIconPath": "./resources/user_selected.png",
@@ -29,9 +29,10 @@
     "pages/user/index"
   ],
   "window": {
+    "backgroundColor": "#eeeeee",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "Weixin",
+    "navigationBarTitleText": "AI 随心画",
     "navigationBarTextStyle": "black"
   },
   "sitemapLocation": "sitemap.json"
