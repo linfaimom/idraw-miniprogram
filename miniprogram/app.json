@@ -7,13 +7,13 @@
       "text": "场景生图"
     },{
       "pagePath": "pages/edit/index",
-      "iconPath": "./resources/image.png",
-      "selectedIconPath": "./resources/image_selected.png",
+      "iconPath": "./resources/merge.png",
+      "selectedIconPath": "./resources/merge_selected.png",
       "text": "融景入图"
     },{
       "pagePath": "pages/variant/index",
-      "iconPath": "./resources/image.png",
-      "selectedIconPath": "./resources/image_selected.png",
+      "iconPath": "./resources/converter.png",
+      "selectedIconPath": "./resources/converter_selected.png",
       "text": "以图换图"
     },{
       "pagePath": "pages/user/index",
