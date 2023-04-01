@@ -1,4 +1,7 @@
 // index.ts
+
+const app = getApp()
+
 Page({
   data: {
     text: "",
@@ -35,7 +38,7 @@ Page({
       url: "https://idraw.doulikeme4i10.cn/api/images/generations",
       method: "POST",
       data: {
-        "user": "marcus",
+        "user": app.globalData.openId,
         "n": _this.data.number,
         "size": _this.data.size,
         "prompt": _this.data.text
