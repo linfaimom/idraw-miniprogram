@@ -8,8 +8,23 @@
       <van-button type="primary" bind:click="postToGenerate" loading="{{loading}}">生成</van-button>
     </van-col>
   </van-row>
-  <van-divider dashed />
-  <view wx:for="{{images}}">
-    <van-image show-loading width="15rem" height="15rem" fit="contain" src="{{item}}"></van-image>
-  </view>
+  <van-divider />
+  <van-row>
+    <view wx:if="{{images.length === 0}}">
+      <view wx:if="{{!loading}}">
+        <van-empty description="尝试生成一张图片吧～" />
+      </view>
+      <view wx:else>
+        <van-empty image="search" description="正在生成中，稍等哦～" />
+      </view>
+    </view>
+    <view wx:else>
+      <view wx:for="{{images}}">
+        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}">
+          <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
+          <text slot="error">加载失败</text>
+        </van-image>
+      </view>
+    </view>
+  </van-row>
 </view>
