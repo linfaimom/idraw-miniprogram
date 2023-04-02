@@ -27,4 +27,6 @@
       </view>
     </view>
   </van-row>
+  <van-divider />
+  <van-circle value="{{(1-currentUsages/dailyLimits)*100}}" text="今日限额" />
 </view>

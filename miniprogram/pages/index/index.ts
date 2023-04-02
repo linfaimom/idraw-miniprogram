@@ -4,6 +4,8 @@ const app = getApp()
 
 Page({
   data: {
+    dailyLimits: 10,
+    currentUsages: 0,
     text: "",
     number: 1,
     size: "256x256",
@@ -11,6 +13,33 @@ Page({
     images: []
   },
   onLoad() {
+    this.updateDailyLimits()
+    this.updateCurrentUsages()
+  },
+  updateDailyLimits() {
+    let _this = this
+    wx.request({
+      url: "https://idraw.doulikeme4i10.cn/api/images/dailyLimits",
+      success(res: any) {
+        _this.setData({
+          dailyLimits: res.data.data
+        })
+      }
+    })
+  },
+  updateCurrentUsages() {
+    let _this = this
+    wx.request({
+      url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
+      data: {
+        openId: app.globalData.openId
+      },
+      success(res: any) {
+        _this.setData({
+          currentUsages: res.data.data
+        })
+      }
+    })
   },
   // 事件处理函数
   onTextChange(e: any) {
@@ -24,9 +53,19 @@ Page({
     })
   },
   postToGenerate(e: any) {
+    // 空输入校验
     if (this.data.text === null || this.data.text === "") {
       wx.showToast({
         title: '要输入文字哦～',
+        icon: 'error',
+        duration: 1500
+      })
+      return
+    }
+    // 限额校验
+    if (this.data.currentUsages >= this.data.dailyLimits) {
+      wx.showToast({
+        title: '改天再来玩吧～',
         icon: 'error',
         duration: 1500
       })
@@ -57,6 +96,7 @@ Page({
         _this.setData({
           images: res.data.data
         })
+        _this.updateCurrentUsages()
       },
       fail(err) {
         console.log(err)
