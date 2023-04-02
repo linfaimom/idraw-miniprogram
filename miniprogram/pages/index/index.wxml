@@ -28,5 +28,5 @@
     </view>
   </van-row>
   <van-divider />
-  <van-circle value="{{(1-currentUsages/dailyLimits)*100}}" text="今日限额" />
+  <van-circle clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{currentUsages}}/{{dailyLimits}}" />
 </view>

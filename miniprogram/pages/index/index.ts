@@ -14,7 +14,7 @@ Page({
   },
   onLoad() {
     this.updateDailyLimits()
-    this.updateCurrentUsages()
+    this.updateCurrentUsages(app.globalData.openId)
   },
   updateDailyLimits() {
     let _this = this
@@ -27,12 +27,12 @@ Page({
       }
     })
   },
-  updateCurrentUsages() {
+  updateCurrentUsages(openId: string) {
     let _this = this
     wx.request({
       url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
       data: {
-        openId: app.globalData.openId
+        openId: openId
       },
       success(res: any) {
         _this.setData({
@@ -96,7 +96,7 @@ Page({
         _this.setData({
           images: res.data.data
         })
-        _this.updateCurrentUsages()
+        _this.updateCurrentUsages(app.globalData.openId)
       },
       fail(err) {
         console.log(err)
