@@ -15,11 +15,6 @@ Page({
   onLoad() {
     this.updateDailyLimits()
     // TODO 偶发获取不到 openId 的状况，待处理
-    if (app.globalData.openId === "unknown") {
-      new Promise(resolve => {
-        setTimeout(resolve, 500)
-      })
-    }
     this.updateCurrentUsages()
   },
   updateDailyLimits() {
