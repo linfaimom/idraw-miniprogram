@@ -14,8 +14,12 @@ Page({
   },
   onLoad() {
     this.updateDailyLimits()
-    // TODO 偶发获取不到 openId 的状况，待处理
-    this.updateCurrentUsages()
+    if (app.globalData.openId !== "unknown") {
+      this.updateCurrentUsages()
+    } else {
+      console.log("page wait to fetch openId")
+      app.watch(() => this.updateCurrentUsages())
+    }
   },
   updateDailyLimits() {
     let _this = this

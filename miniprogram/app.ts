@@ -30,4 +30,18 @@ App({
       },
     })
   },
+  watch(fn: any) {
+    var obj = this.globalData
+    Object.defineProperty(obj, 'openId', {
+      configurable: true,
+      enumerable: true,
+      set: function (value) {
+        this._openId = value;
+        fn(value);
+      },
+      get: function () {
+        return this._openId
+      }
+    })
+},
 })
