@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-circle": "@vant/weapp/circle/index",
     "van-empty": "@vant/weapp/empty/index",
     "van-divider": "@vant/weapp/divider/index",
