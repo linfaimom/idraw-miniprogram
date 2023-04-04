@@ -33,5 +33,5 @@
 </view>
 <van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed>今日剩余</van-divider>
 <view class="container">
-  <van-circle clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
+  <van-circle speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
 </view>
