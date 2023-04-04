@@ -8,9 +8,9 @@ Page({
     currentUsages: 0,
     text: "",
     number: 1,
-    size: "256x256",
+    size: "512x512",
     loading: false,
-    images: ["https://bountycdn.azureedge.net/~/media/b9bedc08353044c5b7e354858f0c4db1.ashx?la=en&rv=26a2b311-b7b5-49bf-8949-d05b6ab5f712"]
+    images: []
   },
   onLoad() {
     this.updateDailyLimits()
@@ -66,7 +66,7 @@ Page({
       loading: !this.data.loading
     })
   },
-  postToGenerate(e: any) {
+  postToGenerate() {
     // 空输入校验
     if (this.data.text === null || this.data.text === "") {
       wx.showToast({
