@@ -23,7 +23,7 @@
     </view>
     <view wx:else>
       <view wx:for="{{images}}">
-        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}">
+        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}" data-src="{{item}}" bind:click="onImageClick">
           <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
           <text slot="error">加载失败</text>
         </van-image>

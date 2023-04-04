@@ -10,7 +10,7 @@ Page({
     number: 1,
     size: "256x256",
     loading: false,
-    images: []
+    images: ["https://bountycdn.azureedge.net/~/media/b9bedc08353044c5b7e354858f0c4db1.ashx?la=en&rv=26a2b311-b7b5-49bf-8949-d05b6ab5f712"]
   },
   onLoad() {
     this.updateDailyLimits()
@@ -52,6 +52,13 @@ Page({
   onTextChange(e: any) {
     this.setData({
       text: e.detail
+    })
+  },
+  onImageClick(e: any) {
+    let url = e.currentTarget.dataset.src
+    wx.previewImage({
+      current: url,
+      urls: this.data.images
     })
   },
   toggleLoading() {
