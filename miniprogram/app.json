@@ -5,12 +5,7 @@
       "iconPath": "./resources/image.png",
       "selectedIconPath": "./resources/image_selected.png",
       "text": "场景生图"
-    }, {
-      "pagePath": "pages/edit/index",
-      "iconPath": "./resources/merge.png",
-      "selectedIconPath": "./resources/merge_selected.png",
-      "text": "融景入图"
-    }, {
+    },{
       "pagePath": "pages/variant/index",
       "iconPath": "./resources/converter.png",
       "selectedIconPath": "./resources/converter_selected.png",

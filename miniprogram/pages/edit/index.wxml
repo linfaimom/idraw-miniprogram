@@ -1,4 +1,2 @@
-<!--index.wxml-->
-<view class="container">
-  <van-empty description="敬请期待哦～" />
-</view>
+<!--pages/edit/index.wxml-->
+<text>pages/edit/index.wxml</text>
