@@ -19,7 +19,6 @@
   },
   "pages": [
     "pages/index/index",
-    "pages/edit/index",
     "pages/variant/index",
     "pages/user/index"
   ],
