@@ -58,10 +58,17 @@ Page({
       }
     })
   },
-  // 事件处理函数
+  // 文字输入处理
   onTextChange(e: any) {
     this.setData({
       text: e.detail
+    })
+  },
+  // 图片点击处理
+  onImageClick(e: any) {
+    wx.previewImage({
+      urls: this.data.images,
+      current: e.currentTarget.dataset.src
     })
   },
   toggleLoading() {

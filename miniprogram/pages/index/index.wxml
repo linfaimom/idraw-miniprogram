@@ -10,7 +10,7 @@
     </van-col>
   </van-row>
 </view>
-<van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成果展示</van-divider>
+<van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成图预览（轻按查看大图）</van-divider>
 <view class="container">
   <van-row>
     <view wx:if="{{images.length === 0}}">
@@ -23,7 +23,7 @@
     </view>
     <view wx:else>
       <view wx:for="{{images}}">
-        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}">
+        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}" data-src="{{item}}" bind:click="onImageClick">
           <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
           <text slot="error">加载失败</text>
         </van-image>
@@ -31,7 +31,7 @@
     </view>
   </van-row>
 </view>
-<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed>今日剩余</van-divider>
+<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed>今日剩余（每日凌晨重置）</van-divider>
 <view class="container">
   <van-circle speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
 </view>
