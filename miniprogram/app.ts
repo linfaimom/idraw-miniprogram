@@ -43,5 +43,5 @@ App({
         return this._openId
       }
     })
-},
+  },
 })
