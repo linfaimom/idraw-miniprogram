@@ -59,7 +59,8 @@ Page({
   onImageUpload(e: any) {
     const { file } = e.detail
     const { fileList = [] } = this.data;
-    fileList.push({ ...file })
+    // TODO path 要从上传到服务器后取得
+    fileList.push({ ...file, "path": "/tmp/123.jpg" })
     this.setData({ fileList });
   },
   // 删除图片处理
@@ -99,7 +100,7 @@ Page({
         "user": getApp().globalData.openId,
         "n": _this.data.number,
         "size": _this.data.size,
-        "image": _this.data.uploadedImage
+        "imagePath": _this.data.fileList[0].path
       },
       success(res: any) {
         console.log(res.data)
