@@ -6,7 +6,7 @@
       <van-field value="{{value}}" placeholder="请输入场景描述" bind:change="onTextChange" />
     </van-col>
     <van-col>
-      <van-button hairline plain type="primary" bind:click="postToGenerate" loading="{{loading}}">生成</van-button>
+      <van-button plain type="primary" bind:click="postToGenerate" loading="{{loading}}">生成</van-button>
     </van-col>
   </van-row>
 </view>

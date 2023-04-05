@@ -1,7 +1,4 @@
 // index.ts
-
-const app = getApp()
-
 Page({
   data: {
     dailyLimits: 10,
@@ -14,14 +11,14 @@ Page({
   },
   onLoad() {
     this.updateDailyLimits()
-    if (app.globalData.openId !== "unknown") {
+    if (getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
-      console.log("page wait to fetch openId")
-      app.watch(() => this.updateCurrentUsages())
+      console.error("page wait to fetch openId")
+      getApp().watch(() => this.updateCurrentUsages())
     }
   },
-  onShareAppMessage() {
+  onSharegetAppMessage() {
     return {
       title: "震惊！！用 ChatGPT 画出的图居然。。。"
     }
@@ -48,7 +45,7 @@ Page({
     wx.request({
       url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
       data: {
-        openId: app.globalData.openId
+        openId: getApp().globalData.openId
       },
       success(res: any) {
         console.log("current usages fetch: ", res.data)
@@ -101,7 +98,7 @@ Page({
       url: "https://idraw.doulikeme4i10.cn/api/images/generations",
       method: "POST",
       data: {
-        "user": app.globalData.openId,
+        "user": getApp().globalData.openId,
         "n": _this.data.number,
         "size": _this.data.size,
         "prompt": _this.data.text
