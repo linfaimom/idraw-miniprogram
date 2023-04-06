@@ -78,7 +78,7 @@ Page({
       }
     })
   },
-  // 图片上传前校验
+  // 图片大小超标处理
   onImageOversize(e: any) {
     wx.showToast({
       title: '不要超4M哦～',
