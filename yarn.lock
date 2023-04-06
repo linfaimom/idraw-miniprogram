@@ -4,10 +4,10 @@
 
 "@vant/weapp@^1.10.14":
   version "1.10.14"
-  resolved "https://registry.npmmirror.com/@vant/weapp/-/weapp-1.10.14.tgz#b5f249097df1f1a7aa5c6602d8cad4afd397f934"
+  resolved "https://registry.npmmirror.com/@vant/weapp/-/weapp-1.10.14.tgz"
   integrity sha512-5usuhoN1kiOV6pzrdVzHrAux6DupKlGd9w+yYc992Zy1n1wHLZMb1dGM3+xtbNE3tpWE2qv95vIFSMpJRFyE7Q==
 
 miniprogram-api-typings@^2.8.3-1:
   version "2.12.0"
-  resolved "https://registry.npmmirror.com/miniprogram-api-typings/-/miniprogram-api-typings-2.12.0.tgz#7a29c90f3e5efa36588422d1f01e22d3394aaaa1"
+  resolved "https://registry.npmmirror.com/miniprogram-api-typings/-/miniprogram-api-typings-2.12.0.tgz"
   integrity sha512-ibvbqeslVFur0IAvTxLMvsbtvVcMo6gwvOnj0YZHV7aeDLu091VQRrETT2QuiG9P6aZWRcxeNGJChRKVPCp9VQ==
