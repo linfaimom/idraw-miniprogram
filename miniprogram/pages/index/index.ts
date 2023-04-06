@@ -31,7 +31,7 @@ Page({
   updateDailyLimits() {
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/dailyLimits",
+      url: getApp().globalData.backendUrl + "/api/images/dailyLimits",
       success(res: any) {
         console.log("current dailyLimits fetch: ", res.data)
         _this.setData({
@@ -43,7 +43,7 @@ Page({
   updateCurrentUsages() {
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
+      url: getApp().globalData.backendUrl + "/api/images/currentUsages",
       data: {
         openId: getApp().globalData.openId
       },
@@ -95,7 +95,7 @@ Page({
     this.toggleLoading()
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/generations",
+      url: getApp().globalData.backendUrl + "/api/images/generations",
       method: "POST",
       data: {
         "user": getApp().globalData.openId,
@@ -104,9 +104,8 @@ Page({
         "prompt": _this.data.text
       },
       success(res: any) {
-        console.log(res.data)
         if (res.data.code !== 200) {
-          console.log(res.data.msg);
+          console.error(res.data.msg);
           wx.showToast({
             title: '请重试一下哦～',
             icon: 'error',
@@ -120,7 +119,7 @@ Page({
         _this.updateCurrentUsages()
       },
       fail(err) {
-        console.log(err)
+        console.error(err)
         wx.showToast({
           title: '请重试一下哦～',
           icon: 'error',

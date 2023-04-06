@@ -31,7 +31,7 @@ Page({
   updateDailyLimits() {
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/dailyLimits",
+      url: getApp().globalData.backendUrl + "/api/images/dailyLimits",
       success(res: any) {
         console.log("current dailyLimits fetch: ", res.data)
         _this.setData({
@@ -43,7 +43,7 @@ Page({
   updateCurrentUsages() {
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
+      url: getApp().globalData.backendUrl + "/api/images/currentUsages",
       data: {
         openId: getApp().globalData.openId
       },
@@ -58,14 +58,41 @@ Page({
   // 图片上传处理
   onImageUpload(e: any) {
     const { file } = e.detail
-    const { fileList = [] } = this.data;
-    // TODO path 要从上传到服务器后取得
-    fileList.push({ ...file, "path": "/tmp/123.jpg" })
-    this.setData({ fileList });
+    const { fileList = [] } = this.data
+    let _this = this
+    wx.uploadFile({
+      url: getApp().globalData.backendUrl + "/api/images",
+      name: "file",
+      filePath: file.url,
+      formData: {
+        "user": getApp().globalData.openId
+      },
+      success(res: any) {
+        let data = JSON.parse(res.data)
+        if (data.code !== 200) {
+          console.error(data.msg);
+          wx.showToast({
+            title: '请重新上传哦～',
+            icon: 'error',
+            duration: 1500
+          })
+          return
+        }
+        fileList.push({ ...file, "path": data.data })
+        _this.setData({ fileList });
+      }
+    })
   },
   // 删除图片处理
   onImageDelete(e: any) {
     this.setData({ fileList: [] });
+  },
+  // 图片点击处理
+  onImageClick(e: any) {
+    wx.previewImage({
+      urls: this.data.images,
+      current: e.currentTarget.dataset.src
+    })
   },
   toggleLoading() {
     this.setData({
@@ -94,18 +121,17 @@ Page({
     this.toggleLoading()
     let _this = this
     wx.request({
-      url: "https://idraw.doulikeme4i10.cn/api/images/variations",
+      url: getApp().globalData.backendUrl + "/api/images/variations",
       method: "POST",
       data: {
         "user": getApp().globalData.openId,
         "n": _this.data.number,
         "size": _this.data.size,
-        "imagePath": _this.data.fileList[0].path
+        "filePath": _this.data.fileList[0].path
       },
       success(res: any) {
-        console.log(res.data)
         if (res.data.code !== 200) {
-          console.log(res.data.msg);
+          console.error(res.data.msg);
           wx.showToast({
             title: '请重试一下哦～',
             icon: 'error',
@@ -119,7 +145,7 @@ Page({
         _this.updateCurrentUsages()
       },
       fail(err) {
-        console.log(err)
+        console.error(err)
         wx.showToast({
           title: '请重试一下哦～',
           icon: 'error',

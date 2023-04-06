@@ -1,7 +1,8 @@
 // app.ts
 App({
   globalData: {
-    "openId": "unknown"
+    "openId": "unknown",
+    "backendUrl": "https://idraw.doulikeme4i10.cn"
   },
   onLaunch() {
     let _this = this
@@ -10,7 +11,7 @@ App({
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
         if (res.code) {
           wx.request({
-            url: 'https://idraw.doulikeme4i10.cn/api/wx/login',
+            url: _this.globalData.backendUrl + '/api/wx/login',
             data: {
               code: res.code
             },
