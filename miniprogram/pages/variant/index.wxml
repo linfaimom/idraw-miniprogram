@@ -15,7 +15,7 @@
   <van-row>
     <view wx:if="{{images.length === 0}}">
       <view wx:if="{{!loading}}">
-        <van-empty style="position: relative; left: 0rpx; top: -50rpx" description="尝试生成一张图片吧～" />
+        <van-empty style="position: relative; left: 0rpx; top: -50rpx" description="来变换一张图片吧～" />
       </view>
       <view wx:else>
         <van-empty image="search" description="正在生成中，稍等哦～" />
@@ -31,7 +31,7 @@
     </view>
   </van-row>
 </view>
-<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed style="position: relative; left: 0rpx; top: 4rpx">今日剩余（每日凌晨重置）</van-divider>
+<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed style="position: relative; left: 0rpx; top: -4rpx">今日剩余（每日凌晨重置）</van-divider>
 <view class="container">
-  <van-circle style="position: relative; left: 0rpx; top: -12rpx" speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
+  <van-circle style="position: relative; left: 0rpx; top: -10rpx" speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
 </view>
