@@ -1,24 +1,31 @@
 // index.ts
-
-const app = getApp()
-
 Page({
   data: {
     dailyLimits: 10,
     currentUsages: 0,
     text: "",
     number: 1,
-    size: "512x512",
+    size: "256x256",
     loading: false,
     images: []
   },
   onLoad() {
     this.updateDailyLimits()
-    if (app.globalData.openId !== "unknown") {
+    if (getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
-      console.log("page wait to fetch openId")
-      app.watch(() => this.updateCurrentUsages())
+      console.error("page wait to fetch openId")
+      getApp().watch(() => this.updateCurrentUsages())
+    }
+  },
+  onSharegetAppMessage() {
+    return {
+      title: "震惊！！用 ChatGPT 画出的图居然。。。"
+    }
+  },
+  onShareTimeline() {
+    return {
+      title: "震惊！！用 ChatGPT 画出的图居然。。。"
     }
   },
   updateDailyLimits() {
@@ -38,7 +45,7 @@ Page({
     wx.request({
       url: "https://idraw.doulikeme4i10.cn/api/images/currentUsages",
       data: {
-        openId: app.globalData.openId
+        openId: getApp().globalData.openId
       },
       success(res: any) {
         console.log("current usages fetch: ", res.data)
@@ -48,17 +55,17 @@ Page({
       }
     })
   },
-  // 事件处理函数
+  // 文字输入处理
   onTextChange(e: any) {
     this.setData({
       text: e.detail
     })
   },
+  // 图片点击处理
   onImageClick(e: any) {
-    let url = e.currentTarget.dataset.src
     wx.previewImage({
-      current: url,
-      urls: this.data.images
+      urls: this.data.images,
+      current: e.currentTarget.dataset.src
     })
   },
   toggleLoading() {
@@ -66,7 +73,7 @@ Page({
       loading: !this.data.loading
     })
   },
-  postToGenerate() {
+  postToGenerate(e: any) {
     // 空输入校验
     if (this.data.text === null || this.data.text === "") {
       wx.showToast({
@@ -91,7 +98,7 @@ Page({
       url: "https://idraw.doulikeme4i10.cn/api/images/generations",
       method: "POST",
       data: {
-        "user": app.globalData.openId,
+        "user": getApp().globalData.openId,
         "n": _this.data.number,
         "size": _this.data.size,
         "prompt": _this.data.text
