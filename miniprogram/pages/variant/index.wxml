@@ -3,7 +3,7 @@
 <view class="container">
   <van-row gutter="20">
     <van-col>
-      <van-uploader upload-text="上传图片" max-count="1" accept="image" file-list="{{fileList}}" bind:after-read="onImageUpload" bind:delete="onImageDelete" />
+      <van-uploader max-size="4194304" upload-text="上传图片" max-count="1" accept="image" file-list="{{fileList}}" bind:oversize="onImageOversize" bind:after-read="onImageUpload" bind:delete="onImageDelete" />
     </van-col>
     <van-col>
       <van-button plain type="primary" bind:click="postToGenerate" loading="{{loading}}" style="position: relative; left: 0rpx; top: 25rpx">变身</van-button>

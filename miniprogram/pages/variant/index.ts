@@ -55,11 +55,23 @@ Page({
       }
     })
   },
+  // 图片上传前校验
+  onImageOversize(e: any) {
+    wx.showToast({
+      title: '不要超4M哦～',
+      icon: 'error',
+      duration: 1500
+    })
+    return
+  },
   // 图片上传处理
   onImageUpload(e: any) {
     const { file } = e.detail
     const { fileList = [] } = this.data
+    fileList.push({ ...file, "status": "uploading" })
+    this.setData({ fileList })
     let _this = this
+    // 上传至服务端
     wx.uploadFile({
       url: getApp().globalData.backendUrl + "/api/images",
       name: "file",
@@ -78,7 +90,8 @@ Page({
           })
           return
         }
-        fileList.push({ ...file, "path": data.data })
+        fileList.length = 0
+        fileList.push({ ...file, "status": "done", "path": data.data })
         _this.setData({ fileList });
       }
     })
