@@ -41,6 +41,9 @@ Page({
       getApp().watch(() => this.updateCurrentUsages())
     }
   },
+  onShow() {
+    this.updateDailyLimits()
+  },
   onShareAppMessage() {
     return {
       title: "震惊！！用 ChatGPT 画出的图居然。。。"
