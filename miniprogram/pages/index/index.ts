@@ -19,7 +19,7 @@ Page({
     }
   },
   onShow() {
-    this.updateDailyLimits()
+    this.updateCurrentUsages()
   },
   onSharegetAppMessage() {
     return {

@@ -42,7 +42,7 @@ Page({
     }
   },
   onShow() {
-    this.updateDailyLimits()
+    this.updateCurrentUsages()
   },
   onShareAppMessage() {
     return {
