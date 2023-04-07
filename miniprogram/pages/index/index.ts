@@ -7,7 +7,7 @@ Page({
     number: 1,
     size: "256x256",
     loading: false,
-    images: []
+    images: <any>[]
   },
   onLoad() {
     this.updateDailyLimits()
@@ -116,8 +116,12 @@ Page({
           })
           return
         }
+        let result: string[] = res.data.data
+        result = result.map(item => {
+          return getApp().globalData.backendUrl + "/api/images?fileName=" + item
+        })
         _this.setData({
-          images: res.data.data
+          images: result
         })
         _this.updateCurrentUsages()
       },
