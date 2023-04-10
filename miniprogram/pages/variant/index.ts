@@ -31,10 +31,11 @@ Page({
     images: <any>[]
   },
   onLoad() {
+    console.log("variant onload")
     const { cropperOpt } = this.data
     this.cropper = new WeCropper(cropperOpt)
     this.updateDailyLimits()
-    if (getApp().globalData.openId !== "unknown") {
+    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
       console.info("variant onload wait to fetch openId")
@@ -42,7 +43,8 @@ Page({
     }
   },
   onShow() {
-    if (getApp().globalData.openId !== "unknown") {
+    console.log("variant onshow")
+    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
       console.info("variant onshow wait to fetch openId")

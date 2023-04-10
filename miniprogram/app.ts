@@ -16,7 +16,6 @@ App({
               code: res.code
             },
             success(resp: any) {
-              console.log(resp)
               if (resp.data.code === 200) {
                 _this.globalData.openId = resp.data.data.openid
               }

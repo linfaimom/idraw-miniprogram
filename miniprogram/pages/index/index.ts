@@ -10,8 +10,9 @@ Page({
     images: <any>[]
   },
   onLoad() {
+    console.info("index onload")
     this.updateDailyLimits()
-    if (getApp().globalData.openId !== "unknown") {
+    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
       console.info("index onload wait to fetch openId")
@@ -19,7 +20,8 @@ Page({
     }
   },
   onShow() {
-    if (getApp().globalData.openId !== "unknown") {
+    console.info("index onshow")
+    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
       console.info("index onshow wait to fetch openId")
