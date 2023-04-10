@@ -1,6 +1,6 @@
 <!--index.wxml-->
 <import src="../../libs/we-cropper/we-cropper.wxml" />
-<van-notice-bar speed="100" left-icon="volume-o" text="因 AI 引擎免费额度有限，每人每天只能生成 10 次哦~" />
+<van-notice-bar speed="100" left-icon="volume-o" text="因 AI 引擎免费额度有限，每人每天只能生成 {{dailyLimits}} 次哦~" />
 <view hidden="{{hideCropperView}}">
   <template is="we-cropper" data="{{...cropperOpt}}" />
   <van-button plain type="primary" bind:click="generateCropperImage" style="position: relative; left: 318rpx; top: 0rpx">裁剪</van-button>
