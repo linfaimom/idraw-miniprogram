@@ -16,17 +16,17 @@ Page({
       scale: 2.5, // 最大缩放倍数
       zoom: 8, // 缩放系数
       cut: {
-        x: (width - 256) / 2, // 裁剪框x轴起点
-        y: (width - 256) / 2, // 裁剪框y轴期起点
-        width: 256, // 裁剪框宽度
-        height: 256 // 裁剪框高度
+        x: (width - 200) / 2, // 裁剪框x轴起点
+        y: (width - 200) / 2, // 裁剪框y轴期起点
+        width: 200, // 裁剪框宽度
+        height: 200 // 裁剪框高度
       },
     },
     dailyLimits: 10,
     currentUsages: 0,
     fileList: <any>[],
     number: 1,
-    size: "256x256",
+    size: "512x512",
     loading: false,
     images: <any>[]
   },

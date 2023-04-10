@@ -5,7 +5,7 @@ Page({
     currentUsages: 0,
     text: "",
     number: 1,
-    size: "256x256",
+    size: "512x512",
     loading: false,
     images: <any>[]
   },
@@ -21,7 +21,7 @@ Page({
   onShow() {
     this.updateCurrentUsages()
   },
-  onSharegetAppMessage() {
+  onShareAppMessage() {
     return {
       title: "震惊！！用 ChatGPT 画出的图居然。。。"
     }
