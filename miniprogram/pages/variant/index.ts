@@ -37,12 +37,17 @@ Page({
     if (getApp().globalData.openId !== "unknown") {
       this.updateCurrentUsages()
     } else {
-      console.error("page wait to fetch openId")
+      console.info("variant onload wait to fetch openId")
       getApp().watch(() => this.updateCurrentUsages())
     }
   },
   onShow() {
-    this.updateCurrentUsages()
+    if (getApp().globalData.openId !== "unknown") {
+      this.updateCurrentUsages()
+    } else {
+      console.info("variant onshow wait to fetch openId")
+      getApp().watch(() => this.updateCurrentUsages())
+    }
   },
   onShareAppMessage() {
     return {
