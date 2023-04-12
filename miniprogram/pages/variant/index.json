@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "van-dialog": "@vant/weapp/dialog/index",
     "van-uploader": "@vant/weapp/uploader/index",
     "van-notice-bar": "@vant/weapp/notice-bar/index",
     "van-circle": "@vant/weapp/circle/index",

@@ -1,5 +1,7 @@
 // index.ts
 import WeCropper from '../../libs/we-cropper/we-cropper.js'
+import Dialog from '@vant/weapp/dialog/dialog';
+
 const device = wx.getSystemInfoSync() // 获取设备信息
 const width = device.windowWidth // 示例为一个与屏幕等宽的正方形裁剪框
 const height = width
@@ -135,11 +137,11 @@ Page({
         success(res: any) {
           let data = JSON.parse(res.data)
           if (data.code !== 200) {
-            console.error(data.msg);
-            wx.showToast({
-              title: '请重新上传哦～',
-              icon: 'error',
-              duration: 1500
+            Dialog.alert({
+              title: '糟糕，出错被发现了🤪',
+              message: data.msg,
+              theme: 'round-button',
+              confirmButtonText: '知道啦！这就去重试一下～'
             })
             return
           }
@@ -198,11 +200,11 @@ Page({
       },
       success(res: any) {
         if (res.data.code !== 200) {
-          console.error(res.data.msg);
-          wx.showToast({
-            title: '请重试一下哦～',
-            icon: 'error',
-            duration: 1500
+          Dialog.alert({
+            title: '糟糕，出错被发现了🤪',
+            message: res.data.msg,
+            theme: 'round-button',
+            confirmButtonText: '知道啦！这就去重试一下～'
           })
           return
         }
@@ -216,11 +218,11 @@ Page({
         _this.updateCurrentUsages()
       },
       fail(err) {
-        console.error(err)
-        wx.showToast({
-          title: '请重试一下哦～',
-          icon: 'error',
-          duration: 1500
+        Dialog.alert({
+          title: '糟糕，出错被发现了🤪',
+          message: err.errMsg,
+          theme: 'round-button',
+          confirmButtonText: '知道啦！这就去重试一下～'
         })
         return
       },

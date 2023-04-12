@@ -1,4 +1,6 @@
 // index.ts
+import Dialog from '@vant/weapp/dialog/dialog';
+
 Page({
   data: {
     dailyLimits: 10,
@@ -112,11 +114,11 @@ Page({
       },
       success(res: any) {
         if (res.data.code !== 200) {
-          console.error(res.data.msg);
-          wx.showToast({
-            title: '请重试一下哦～',
-            icon: 'error',
-            duration: 1500
+          Dialog.alert({
+            title: '糟糕，出错被发现了🤪',
+            message: res.data.msg,
+            theme: 'round-button',
+            confirmButtonText: '知道啦！这就去重试一下～'
           })
           return
         }
@@ -130,11 +132,11 @@ Page({
         _this.updateCurrentUsages()
       },
       fail(err) {
-        console.error(err)
-        wx.showToast({
-          title: '请重试一下哦～',
-          icon: 'error',
-          duration: 1500
+        Dialog.alert({
+          title: '糟糕，出错被发现了🤪',
+          message: err.errMsg,
+          theme: 'round-button',
+          confirmButtonText: '知道啦！这就去重试一下～'
         })
         return
       },
