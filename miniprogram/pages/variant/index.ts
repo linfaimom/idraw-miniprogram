@@ -34,21 +34,18 @@ Page({
     console.log("variant onload")
     const { cropperOpt } = this.data
     this.cropper = new WeCropper(cropperOpt)
-    this.updateDailyLimits()
-    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
-      this.updateCurrentUsages()
-    } else {
-      console.info("variant onload wait to fetch openId")
-      getApp().watch(() => this.updateCurrentUsages())
-    }
   },
   onShow() {
-    console.log("variant onshow")
+    console.info("variant onshow")
     if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
+      this.updateDailyLimits()
       this.updateCurrentUsages()
     } else {
       console.info("variant onshow wait to fetch openId")
-      getApp().watch(() => this.updateCurrentUsages())
+      getApp().watch(() => {
+        this.updateDailyLimits()
+        this.updateCurrentUsages()
+      })
     }
   },
   onShareAppMessage() {

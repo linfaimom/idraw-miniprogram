@@ -11,21 +11,18 @@ Page({
   },
   onLoad() {
     console.info("index onload")
-    this.updateDailyLimits()
-    if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
-      this.updateCurrentUsages()
-    } else {
-      console.info("index onload wait to fetch openId")
-      getApp().watch(() => this.updateCurrentUsages())
-    }
   },
   onShow() {
     console.info("index onshow")
     if (getApp().globalData.openId !== undefined && getApp().globalData.openId !== "unknown") {
+      this.updateDailyLimits()
       this.updateCurrentUsages()
     } else {
       console.info("index onshow wait to fetch openId")
-      getApp().watch(() => this.updateCurrentUsages())
+      getApp().watch(() => {
+        this.updateDailyLimits()
+        this.updateCurrentUsages()
+      })
     }
   },
   onShareAppMessage() {
