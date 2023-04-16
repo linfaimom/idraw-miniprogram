@@ -15,14 +15,14 @@
       </van-col>
       <van-col>
         <text style="font-size: large;">今日生成：</text>
-        <text style="font-size: large; color: indianred;">{{dailyLimits-currentUsages}}</text>
+        <text style="font-size: large; color: indianred;">{{currentUsages}}</text>
       </van-col>
       <van-col>
         <text style="font-size: large; font-weight: 100;">|</text>
       </van-col>
       <van-col>
         <text style="font-size: large;">今日剩余：</text>
-        <text style="font-size: large; color: indianred;">{{currentUsages}}</text>
+        <text style="font-size: large; color: indianred;">{{dailyLimits-currentUsages}}</text>
       </van-col>
     </van-row>
   </view>
