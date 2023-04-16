@@ -1,4 +1,35 @@
 <!--index.wxml-->
-<view class="container">
-  <van-empty description="敬请期待哦～" />
+<view class="user-area">
+  <view class="user-basic-info">
+    <van-image round fit="cover" width="6rem" height="6rem" src="https://img.yzcdn.cn/vant/cat.jpeg" />
+    <text>微信用户</text>
+  </view>
+  <view class="user-consume-info">
+    <van-row gutter="8">
+      <van-col>
+        <text style="font-size: large;">累计生成：</text>
+        <text style="font-size: large; color: indianred;">{{totalGeneratedNum}}</text>
+      </van-col>
+      <van-col>
+        <text style="font-size: large; font-weight: 100;">|</text>
+      </van-col>
+      <van-col>
+        <text style="font-size: large;">今日生成：</text>
+        <text style="font-size: large; color: indianred;">{{dailyLimits-currentUsages}}</text>
+      </van-col>
+      <van-col>
+        <text style="font-size: large; font-weight: 100;">|</text>
+      </van-col>
+      <van-col>
+        <text style="font-size: large;">今日剩余：</text>
+        <text style="font-size: large; color: indianred;">{{currentUsages}}</text>
+      </van-col>
+    </van-row>
+  </view>
 </view>
+<van-divider />
+<van-cell-group>
+  <van-cell size="large" is-link title="生图记录" center label="展示场景描述及其生成图片" link-type="redirectTo" url="/pages/index/index" />
+  <van-cell size="large" is-link title="换图记录" center label="展示原始图片及其生成图片" link-type="redirectTo" url="/pages/variant/index" />
+  <van-cell size="large" title="增加今日可用次数" clickable="true" bind:click="onAskTurnUpLimits" />
+</van-cell-group>

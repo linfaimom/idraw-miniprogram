@@ -1,0 +1,21 @@
+.user-area {
+  height: 100%;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+.user-basic-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 80rpx;
+}
+
+.user-consume-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20rpx;
+}
