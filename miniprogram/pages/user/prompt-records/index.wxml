@@ -6,6 +6,6 @@
       <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
       <text slot="error">加载失败</text>
     </van-image>
-    <van-divider />
+    <van-divider dashed borderColor="#1989fa" textColor="#1989fa"/>
   </view>
 </view>

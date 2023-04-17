@@ -65,7 +65,20 @@ Page({
       }
     })
   },
+  onAskAbout(e) {
+    wx.showToast({
+      title: '敬请期待哦～',
+      icon: 'error',
+      duration: 1500
+    })
+    return
+  },
   onAskTurnUpLimits(e) {
-    console.log(e)
+    wx.showToast({
+      title: '敬请期待哦～',
+      icon: 'error',
+      duration: 1500
+    })
+    return
   }
 })

@@ -31,5 +31,6 @@
 <van-cell-group>
   <van-cell icon="records" size="large" is-link title="生图记录" center link-type="navigateTo" url="prompt-records/index" />
   <van-cell icon="exchange" size="large" is-link title="换图记录" center link-type="navigateTo" url="variation-records/index" />
+  <van-cell icon="info-o" size="large" title="关于本应用" clickable="true" bind:click="onAskAbout" />
   <van-cell icon="star-o" size="large" title="增加今日可用次数" clickable="true" bind:click="onAskTurnUpLimits" />
 </van-cell-group>
