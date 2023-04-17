@@ -1,2 +1,11 @@
 <!--pages/user/prompt/index.wxml-->
-<text>pages/user/prompt/index.wxml</text>
+<view class="container">
+  <view wx:for="{{records}}">
+    <!-- <text>{{item.input}}</text> -->
+    <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item.output[0]}}" data-src="{{item.output[0]}}" bind:click="onImageClick">
+      <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
+      <text slot="error">加载失败</text>
+    </van-image>
+    <van-divider />
+  </view>
+</view>

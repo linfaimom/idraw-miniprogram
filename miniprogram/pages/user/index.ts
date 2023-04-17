@@ -1,8 +1,8 @@
 // index.ts
 Page({
   data: {
-    totalGeneratedNum: 10,
-    dailyLimits: 10,
+    totalGeneratedNum: 0,
+    dailyLimits: 0,
     currentUsages: 0
   },
   onLoad() {

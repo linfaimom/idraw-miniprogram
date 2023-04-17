@@ -3,7 +3,7 @@ import Dialog from '@vant/weapp/dialog/dialog';
 
 Page({
   data: {
-    dailyLimits: 10,
+    dailyLimits: 0,
     currentUsages: 0,
     text: "",
     number: 1,

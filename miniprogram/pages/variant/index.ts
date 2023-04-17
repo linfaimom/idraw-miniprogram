@@ -24,7 +24,7 @@ Page({
         height: 200 // 裁剪框高度
       },
     },
-    dailyLimits: 10,
+    dailyLimits: 0,
     currentUsages: 0,
     fileList: <any>[],
     number: 1,
