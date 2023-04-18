@@ -42,6 +42,9 @@ Page({
     let _this = this
     wx.request({
       url: getApp().globalData.backendUrl + "/api/images/dailyLimits",
+      data: {
+        openId: getApp().globalData.openId
+      },
       success(res: any) {
         console.log("current dailyLimits fetch: ", res.data)
         _this.setData({
