@@ -119,6 +119,12 @@ Page({
   touchEnd(e: any) {
     this.cropper.touchEnd(e)
   },
+  exitCropperImage(e: any) {
+    this.setData({
+      hideCropperView: true,
+      fileList: []
+    })
+  },
   generateCropperImage(e: any) {
     const { fileList } = this.data
     this.cropper.getCropperImage((tempFilePath: string) => {

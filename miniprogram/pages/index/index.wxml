@@ -1,15 +1,8 @@
 <!--index.wxml-->
-<van-notice-bar speed="100" left-icon="volume-o" text="因画图引擎免费额度有限，每人每天只能生成 {{dailyLimits}} 次哦~" />
+<van-notice-bar speed="100" left-icon="volume-o" text="请大家文明使用哦，切勿输入涉及色情、暴力、政治等敏感内容哈～" />
 <van-dialog id="van-dialog" />
-<view class="container">
-  <van-row gutter="20">
-    <van-col>
-      <van-field value="{{value}}" placeholder="请输入场景描述" bind:change="onTextChange" />
-    </van-col>
-    <van-col>
-      <van-button plain type="primary" bind:click="postToGenerate" loading="{{loading}}">生成</van-button>
-    </van-col>
-  </van-row>
+<view style="padding: 20px 30px 0 30px;">
+  <van-field clearable autosize custom-style="height: 100px; border-radius: 10px; border:1px solid #6495ED" type="textarea" value="{{text}}" placeholder="请输入场景描述。如：一只猪正在太空中旅行" bind:change="onTextChange" />
 </view>
 <van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成图预览（轻按查看大图）</van-divider>
 <view class="container">
@@ -32,7 +25,8 @@
     </view>
   </van-row>
 </view>
-<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed>今日剩余（每日凌晨重置）</van-divider>
+<van-button custom-style="position: fixed; bottom: 0" size="large" type="primary" bind:click="postToGenerate" loading="{{loading}}">生成</van-button>
+<!-- <van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed>今日剩余（每日凌晨重置）</van-divider>
 <view class="container">
   <van-circle speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
-</view>
+</view> -->

@@ -1,43 +1,48 @@
 <!--index.wxml-->
 <import src="../../libs/we-cropper/we-cropper.wxml" />
-<van-notice-bar speed="100" left-icon="volume-o" text="因画图引擎免费额度有限，每人每天只能生成 {{dailyLimits}} 次哦~" />
+<van-notice-bar speed="100" left-icon="volume-o" text="请大家文明使用哦，切勿输入涉及色情、暴力、政治等敏感内容哈～" />
 <van-dialog id="van-dialog" />
 <view hidden="{{hideCropperView}}">
   <template is="we-cropper" data="{{...cropperOpt}}" />
-  <van-button plain type="primary" bind:click="generateCropperImage" style="position: relative; left: 318rpx; top: 0rpx">裁剪</van-button>
+  <view style="margin-top: 10px; display: flex; flex-direction: column; align-items: center;">
+    <van-row gutter="20">
+      <van-col>
+        <van-button plain type="primary" bind:click="generateCropperImage">裁剪</van-button>
+      </van-col>
+      <van-col>
+        <van-button plain type="danger" bind:click="exitCropperImage">取消</van-button>
+      </van-col>
+    </van-row>
+  </view>
 </view>
-<view class="container" hidden="{{!hideCropperView}}">
-  <van-row gutter="20">
-    <van-col>
-      <van-uploader max-size="4194304" upload-text="上传图片" max-count="1" accept="image" file-list="{{fileList}}" bind:oversize="onImageOversize" bind:after-read="onImageUpload" bind:delete="onImageDelete" />
-    </van-col>
-    <van-col>
-      <van-button plain type="primary" bind:click="postToGenerate" loading="{{loading}}" style="position: relative; left: 0rpx; top: 25rpx">变身</van-button>
-    </van-col>
-  </van-row>
-</view>
-<van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成图预览（轻按查看大图）</van-divider>
-<view class="container" style="width: 750rpx; height: 530rpx; display: flex; box-sizing: border-box">
-  <van-row>
-    <view wx:if="{{images.length === 0}}">
-      <view wx:if="{{!loading}}">
-        <van-empty style="position: relative; left: 0rpx; top: -50rpx" description="来变换一张图片吧～" />
+<view hidden="{{!hideCropperView}}">
+  <view style="margin: 20px 30px 0 30px; height: 100px; border-radius: 10px; border:1px solid #6495ED; display: flex; flex-direction: column; align-items: center;">
+    <van-uploader style="position: relative; top: 20rpx" max-size="4194304" upload-text="上传图片" max-count="1" accept="image" file-list="{{fileList}}" bind:oversize="onImageOversize" bind:after-read="onImageUpload" bind:delete="onImageDelete" />
+  </view>
+  <van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成图预览（轻按查看大图）</van-divider>
+  <view class="container">
+    <van-row>
+      <view wx:if="{{images.length === 0}}">
+        <view wx:if="{{!loading}}">
+          <van-empty description="尝试变换一张图片吧～" />
+        </view>
+        <view wx:else>
+          <van-empty image="search" description="正在生成中，稍等哦～" />
+        </view>
       </view>
       <view wx:else>
-        <van-empty image="search" description="正在生成中，稍等哦～" />
+        <view wx:for="{{images}}">
+          <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}" data-src="{{item}}" bind:click="onImageClick">
+            <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
+            <text slot="error">加载失败</text>
+          </van-image>
+        </view>
       </view>
-    </view>
-    <view wx:else>
-      <view wx:for="{{images}}">
-        <van-image use-error-slot use-loading-slot fit="cover" width="16rem" height="16rem" src="{{item}}" data-src="{{item}}" bind:click="onImageClick">
-          <van-loading slot="loading" type="spinner" color="#1989fa" size="20" vertical />
-          <text slot="error">加载失败</text>
-        </van-image>
-      </view>
-    </view>
-  </van-row>
-</view>
-<van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed style="position: relative; left: 0rpx; top: -4rpx">今日剩余（每日凌晨重置）</van-divider>
+    </van-row>
+  </view>
+  <!-- <van-divider contentPosition="center" borderColor="#1989fa" textColor="#1989fa" dashed style="position: relative; left: 0rpx; top: -4rpx">今日剩余（每日凌晨重置）</van-divider>
 <view class="container">
   <van-circle style="position: relative; left: 0rpx; top: -10rpx" speed="80" clockwise="{{false}}" size="80" value="{{(1-currentUsages/dailyLimits)*100}}" text="{{dailyLimits-currentUsages}}" />
+</view> -->
+  <van-button custom-style="position:fixed; bottom: 0" size="large" type="primary" bind:click="postToGenerate" loading="{{loading}}">变身</van-button>
 </view>
