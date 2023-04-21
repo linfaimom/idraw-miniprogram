@@ -211,6 +211,7 @@ Page({
         if (res.data.code !== 200) {
           Dialog.alert({
             title: '糟糕，出错被发现了🤪',
+            messageAlign: "left",
             message: res.data.msg,
             theme: 'round-button',
             confirmButtonText: '知道啦！这就去重试一下～'
@@ -229,6 +230,7 @@ Page({
       fail(err) {
         Dialog.alert({
           title: '糟糕，出错被发现了🤪',
+          messageAlign: "left",
           message: err.errMsg,
           theme: 'round-button',
           confirmButtonText: '知道啦！这就去重试一下～'

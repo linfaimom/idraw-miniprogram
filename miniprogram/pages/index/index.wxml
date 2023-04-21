@@ -2,6 +2,17 @@
 <van-notice-bar speed="100" left-icon="volume-o" text="请大家文明使用哦，切勿输入涉及色情、暴力、政治等敏感内容哈～" />
 <van-dialog id="van-dialog" />
 <view style="padding: 20px 30px 0 30px;">
+  <view style="margin-bottom: 2px; display: flex; flex-direction: row-reverse;">
+    <van-row gutter="8">
+      <van-col>
+        <van-icon color="orange" style="position: relative; right: 2px; top: -5rpx" size="14px" name="info-o" bind:click="onInfoClick" />
+        <text style="color: rgba(0, 0, 0, 0.6); font-size: 14px; position: relative; left: 0rpx; top: -6rpx">简易模式</text>
+      </van-col>
+      <van-col>
+        <van-switch inactive-color="#000" checked="{{true}}" size="14px" bind:change="onModeChange" />
+      </van-col>
+    </van-row>
+  </view>
   <van-field clearable autosize custom-style="height: 100px; border-radius: 10px; border:1px solid #6495ED" type="textarea" value="{{text}}" placeholder="请输入场景描述。如：一只猪正在太空中旅行" bind:change="onTextChange" />
 </view>
 <van-divider dashed contentPosition="center" borderColor="#1989fa" textColor="#1989fa">成图预览（轻按查看大图）</van-divider>
