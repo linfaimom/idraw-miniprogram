@@ -5,8 +5,8 @@
   <view style="margin-bottom: 2px; display: flex; flex-direction: row-reverse;">
     <van-row gutter="8">
       <van-col>
-        <van-icon color="orange" style="position: relative; right: 2px; top: -5rpx" size="14px" name="info-o" bind:click="onInfoClick" />
-        <text style="color: rgba(0, 0, 0, 0.6); font-size: 14px; position: relative; left: 0rpx; top: -6rpx">简易模式</text>
+        <van-icon color="orange" style="position: relative; right: 3px; top: -5rpx" size="14px" name="info-o" bind:click="onInfoClick" />
+        <text style="color: rgba(0, 0, 0, 0.6); font-size: 14px; position: relative; left: 0rpx; top: -6rpx">懒人模式</text>
       </van-col>
       <van-col>
         <van-switch inactive-color="#000" checked="{{true}}" size="14px" bind:change="onModeChange" />
