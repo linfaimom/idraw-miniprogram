@@ -7,6 +7,7 @@ Page({
     dailyLimits: 0,
     currentUsages: 0,
     text: "",
+    textAreaFocused: false,
     number: 1,
     size: "512x512",
     loading: false,
@@ -66,6 +67,11 @@ Page({
           currentUsages: res.data.data
         })
       }
+    })
+  },
+  onTextAreaTap(e: any) {
+    this.setData({
+      textAreaFocused: true
     })
   },
   // 文字输入处理
