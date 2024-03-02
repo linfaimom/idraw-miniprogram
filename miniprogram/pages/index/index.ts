@@ -9,7 +9,8 @@ Page({
     text: "",
     textAreaFocused: false,
     number: 1,
-    size: "512x512",
+    model: "dall-e-3",
+    size: "1024x1024",
     loading: false,
     images: <any>[]
   },
@@ -136,6 +137,7 @@ Page({
       method: "POST",
       data: {
         "user": getApp().globalData.openId,
+        "model": _this.data.model,
         "n": _this.data.number,
         "size": _this.data.size,
         "prompt": _this.data.text
